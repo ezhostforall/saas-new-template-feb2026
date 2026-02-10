@@ -1,0 +1,33 @@
+{
+  "name": "SaaS Template",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [3000, 4000, 4321],
+  "portsAttributes": {
+    "3000": {
+      "label": "CRM App",
+      "onAutoForward": "openPreview"
+    },
+    "4000": {
+      "label": "Backend API",
+      "onAutoForward": "silent"
+    },
+    "4321": {
+      "label": "Marketing Site",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "pnpm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "astro-build.astro-vscode"
+      ]
+    }
+  }
+}

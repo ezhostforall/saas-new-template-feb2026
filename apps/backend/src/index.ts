@@ -12,7 +12,17 @@ const PORT = process.env.PORT || 4000
 
 // Middleware
 app.use(helmet())
-app.use(cors())
+
+// CORS configuration for subdomain-based architecture
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://example.com', 'https://crm.example.com', 'https://api.example.com']
+    : ['http://localhost:4321', 'http://localhost:3000'], // Marketing site and CRM app
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions))
 app.use(morgan('combined'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -33,7 +43,7 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' })
 })
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`)
   console.log(`Health check available at http://localhost:${PORT}/api/health`)
 })

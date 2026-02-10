@@ -24,9 +24,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-], {
-  basename: "/app"
-})
+])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

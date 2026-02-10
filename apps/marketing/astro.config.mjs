@@ -9,4 +9,8 @@ export default defineConfig({
   ],
   output: 'static',
   outDir: './dist',
+  server: {
+    port: 4321,
+    host: true
+  }
 });

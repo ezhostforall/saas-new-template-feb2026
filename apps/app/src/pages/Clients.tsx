@@ -1,13 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { Card, CardHeader, CardTitle, CardContent, Button } from '@crm/ui'
 import type { Client, ListResponse } from '@crm/types'
+import { apiClient } from '../config/api'
 
 async function fetchClients(): Promise<ListResponse<Client>> {
-  const response = await fetch('/api/clients')
-  if (!response.ok) {
-    throw new Error('Failed to fetch clients')
-  }
-  return response.json()
+  return apiClient.get<ListResponse<Client>>('/clients')
 }
 
 export default function Clients() {
