@@ -8,7 +8,7 @@ import authRoutes from './routes/auth.js'
 import clientRoutes from './routes/clients.js'
 
 const app: Application = express()
-const PORT = process.env.PORT || 4000
+const PORT = parseInt(process.env.PORT || '4000', 10)
 
 // Middleware
 app.use(helmet())

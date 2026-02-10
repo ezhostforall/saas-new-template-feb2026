@@ -5,7 +5,9 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [
     react(),
-    tailwind()
+    tailwind({
+      applyBaseStyles: false,
+    })
   ],
   output: 'static',
   outDir: './dist',
