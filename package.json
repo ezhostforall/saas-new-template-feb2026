@@ -1,18 +1,23 @@
 {
-  "name": "crm-saas-monorepo",
+  "name": "@saas/root",
   "private": true,
-  "version": "0.1.0",
-  "packageManager": "pnpm@10.0.0",
+  "type": "module",
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build",
-    "lint": "turbo run lint",
-    "typecheck": "turbo run typecheck",
-    "supabase:start": "supabase start",
-    "supabase:reset": "supabase db reset --local",
-    "supabase:stop": "supabase stop"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "supabase:start": "turbo supabase:start",
+    "supabase:reset": "turbo supabase:reset",
+    "supabase:stop": "turbo supabase:stop"
   },
   "devDependencies": {
-    "turbo": "^2.3.3"
+    "@turbo/gen": "^2.0.0",
+    "turbo": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
   }
 }

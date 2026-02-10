@@ -1,5 +1,5 @@
 {
-  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
   "tasks": {
     "dev": {
       "cache": false,
@@ -8,21 +8,27 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [
+        ".next/**",
+        "!.next/cache/**",
         "dist/**",
-        "apps/backend/dist/**",
-        "apps/app/dist/**",
-        "apps/marketing/dist/**",
-        "packages/ui/dist/**",
-        "packages/types/dist/**"
+        "build/**",
+        ".turbo/**"
       ]
     },
     "lint": {
-      "dependsOn": ["^lint"],
-      "outputs": []
+      "dependsOn": ["^lint"]
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"],
-      "outputs": []
+      "dependsOn": ["^typecheck"]
+    },
+    "supabase:start": {
+      "cache": false
+    },
+    "supabase:reset": {
+      "cache": false
+    },
+    "supabase:stop": {
+      "cache": false
     }
   }
 }
